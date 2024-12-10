@@ -34,8 +34,13 @@ Configuring:Patching
 
 build/check_build.tmp:$(PATCHES)
 	[ -d 'build' ] || mkdir build
-	@[ -f '.linux-4.19.125.tar.gz' ] || wget --passive-ftp -nd -t 3 -O '.linux-4.19.125.tar.gz' 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-4.19.125.tar.gz'
-	@[ -d 'build/linux-4.19.125' ] || tar zxf .linux-4.19.125.tar.gz -C build/
+	@if [ -f '.stamp_extracted' ] ; then \
+		[ -f '../../../dl/linux-4.19.125.tar.gz' ] || wget --passive-ftp -nd -t 3 -O '../../../dl/linux-4.19.125.tar.gz' 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-4.19.125.tar.gz' ; \
+		[ -d '../../../dl/linux-4.19.125.tar.gz' ] || tar xjf ../../../dl/linux-4.19.125.tar.gz -C build/ ; \
+	else \
+		[ -f '.linux-4.19.125.tar.gz' ] || wget --passive-ftp -nd -t 3 -O '.linux-4.19.125.tar.gz' 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-4.19.125.tar.gz' ; \
+		[ -d 'build/linux-4.19.125' ] || tar zxf .linux-4.19.125.tar.gz -C build/ ; \
+	fi
 	@[ -L 'arch' ] || ln -s $(SRC_DIR)/arch arch
 	@[ -L 'scripts' ] || ln -s $(SRC_DIR)/scripts scripts
 	@[ -L 'include' ] || ln -s $(SRC_DIR)/scripts include
