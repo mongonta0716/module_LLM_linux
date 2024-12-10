@@ -33,8 +33,8 @@ Configuring:Patching
 
 build/check_build.tmp:$(PATCHES)
 	[ -d 'build' ] || mkdir build
-	@[ -f 'build/linux-4.19.125.tar.gz' ] || wget --passive-ftp -nd -t 3 -O 'build/linux-4.19.125.tar.gz' 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-4.19.125.tar.gz'
-	@[ -d 'build/linux-4.19.125' ] || tar zxf build/linux-4.19.125.tar.gz -C build/
+	@[ -f '.linux-4.19.125.tar.gz' ] || wget --passive-ftp -nd -t 3 -O '.linux-4.19.125.tar.gz' 'https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/snapshot/linux-4.19.125.tar.gz'
+	@[ -d 'build/linux-4.19.125' ] || tar zxf .linux-4.19.125.tar.gz -C build/
 	@touch build/check_build.tmp
 
 build/check_dts.tmp:$(DTSS)
