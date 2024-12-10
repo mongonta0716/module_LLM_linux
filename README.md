@@ -4,7 +4,7 @@ Compilation will automatically download and apply the relevant patches to compil
 
 auto compile:
 ```bash
-make -j `nproc`
+make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- -j `nproc`
 ```
 
 just Extract:
@@ -19,5 +19,5 @@ make Patching
 
 just Configur:
 ```bash
-make Configuring
+make ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu- Configuring
 ```

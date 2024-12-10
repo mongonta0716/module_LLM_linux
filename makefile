@@ -8,9 +8,10 @@ PATCHES := $(wildcard patches/*.patch)
 DTSS := $(wildcard linux-dts/*.dts*)
 CONFIG_FILES := $(wildcard *.config)
 
-AX630C_KERNEL_PARAM := ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu-
+# AX630C_KERNEL_PARAM := ARCH=arm64 CROSS_COMPILE=aarch64-none-linux-gnu-
+# KERNEL_MAKE := cd $(SRC_DIR) ; $(MAKE) $(AX630C_KERNEL_PARAM)
 
-KERNEL_MAKE := cd $(SRC_DIR) ; $(MAKE) $(AX630C_KERNEL_PARAM)
+KERNEL_MAKE := cd $(SRC_DIR) ; $(MAKE)
 
 %:
 	@ if [ "$(MAKECMDGOALS)" != "build_init" ] ; then \
