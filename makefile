@@ -57,10 +57,12 @@ build/check_build.tmp:$(PATCHES)
 	@[ -L 'arch' ] || ln -s $(SRC_DIR)/arch arch
 	@[ -L 'scripts' ] || ln -s $(SRC_DIR)/scripts scripts
 	@[ -L 'include' ] || ln -s $(SRC_DIR)/scripts include
+	@rm -f build/check_build.tmp
 	@touch build/check_build.tmp
 
 build/check_dts.tmp:$(DTSS)
 	@cp linux-dts/* $(SRC_DIR)/arch/arm64/boot/dts/
+	@rm -f build/check_dts.tmp
 	@touch build/check_dts.tmp
 
 build/check_patch.tmp:$(PATCHES)
@@ -70,10 +72,12 @@ build/check_patch.tmp:$(PATCHES)
 			patch -p1 -d $(SRC_DIR) <$$patch || { echo "Failed to apply $$patch"; exit 1; } \
 		done ; \
 	}
+	@rm -f build/check_patch.tmp
 	@touch build/check_patch.tmp
 
 build/check_config.tmp:$(CONFIG_FILES)
 	@[ -f '$(SRC_DIR)/arch/arm64/configs/m5stack_AX630C_emmc_arm64_k419_defconfig' ] || { cat $(SRC_DIR)/arch/arm64/configs/axera_AX630C_emmc_arm64_k419_defconfig fragment-03-systemd.config linux-disable.config linux-enable-m5stack.config > $(SRC_DIR)/arch/arm64/configs/m5stack_AX630C_emmc_arm64_k419_defconfig ; }
+	@rm -f build/check_config.tmp
 	@touch build/check_config.tmp
 
 distclean:
