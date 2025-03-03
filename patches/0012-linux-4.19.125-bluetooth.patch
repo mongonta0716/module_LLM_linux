@@ -12,3 +12,4 @@ index 1b0adf5c2..41042cacb 100644
  	/* Silicon Wave based devices */
  	{ USB_DEVICE(0x0c10, 0x0000), .driver_info = BTUSB_SWAVE },
  
+
