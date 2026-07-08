@@ -204723,13 +204723,13 @@ index 000000000..06710f06e
 +			i2s_write_reg(dev->i2s_base, RFCR(ch_reg),
 +				      dev->fifo_th - 1);
 +			i2s_write_reg(dev->i2s_base, RER(ch_reg), 1);
-+			if (16 == config->data_width) {
-+				i2s_write_reg(dev->i2s_base, RCR(1),
-+				dev->xfer_resolution);
-+				i2s_write_reg(dev->i2s_base, RFCR(1),
-+				dev->fifo_th - 1);
-+				i2s_write_reg(dev->i2s_base, RER(1), 1);
-+			}
++	//		if (16 == config->data_width) {
++	//			i2s_write_reg(dev->i2s_base, RCR(1),
++	//			dev->xfer_resolution);
++	//			i2s_write_reg(dev->i2s_base, RFCR(1),
++	//			dev->fifo_th - 1);
++	//			i2s_write_reg(dev->i2s_base, RER(1), 1);
++	//		}
 +		}
 +	}
 +}
