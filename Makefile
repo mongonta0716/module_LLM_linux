@@ -1,3 +1,8 @@
+VERSION = 4
+PATCHLEVEL = 19
+SUBLEVEL = 125
+EXTRAVERSION =
+
 # SPDX-FileCopyrightText: 2024 M5Stack Technology CO LTD
 #
 # SPDX-License-Identifier: MIT
